@@ -1,0 +1,20 @@
+{% extends 'repair/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="col">
+            <h3>Hardware</h3>
+        </div>
+        <div class="container">
+            <img src="{{ hard.image.url }}" class="img-fluid" alt="...">
+            <div class="def">
+                <h2>{{hard.title}}</h2>
+                <p>{{hard.description}}</p>
+            </div>
+        </div>
+    </div>
+       
+{% endblock content %}

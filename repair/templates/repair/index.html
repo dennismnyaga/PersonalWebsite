@@ -5,16 +5,62 @@
         <div class="col">
             <h3>Hardware</h3>
         </div>
+        {% for hardware in hard %}
         <div class="container">
-            <img src="{% static 'repair/images/Computer_Repair.jpg' %}" class="img-fluid" alt="...">
+            <a href="{% url 'repair:detail' hardware.id %}"><img src="{{ hardware.image.url }}" class="img-fluid" alt="..."></a>
             <div class="def">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quo vero placeat dolor 
-                    adipisci porro, laborum est voluptates? Officiis 
-                    repellendus assumenda libero dicta iste sequi corrupti laboriosam eius possimus eum.</p>
+                <a href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
+                <p>{{hardware.description}}</p>
             </div>
+            <div class="col" style="background-color: gray;">
+                <a  href="{{hardware.title}}"><h4 style="text-align: center;">[Read more..]</h4></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        <div class="col">
+            <h3>Software</h3>
         </div>
         <div class="container">
             <img src="{% static 'repair/images/Computer_Repair.jpg' %}" class="img-fluid" alt="...">
+            <div class="def">
+                <h2>
+                    Main Content
+                    HARDWARE
+                    Intel Management Engine Components Slowing Down PC
+                    Intel Management Engine Components Slowing Down PC</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quo vero placeat dolor 
+                    adipisci porro, laborum est voluptates? Officiis 
+                    repellendus assumenda libero dicta iste sequi corrupti laboriosam eius possimus eum......</p>
+            </div>
+            <div class="col" style="background-color: gray;">
+                <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="col">
+            <h3>Market</h3>
+        </div>
+        <div class="container">
+            <img src="{% static 'repair/images/Computer_Repair.jpg' %}" class="img-fluid" alt="...">
+            <div class="def">
+                <h2>
+                    Main Content
+                    HARDWARE
+                    Intel Management Engine Components Slowing Down PC
+                    Intel Management Engine Components Slowing Down PC</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quo vero placeat dolor 
+                    adipisci porro, laborum est voluptates? Officiis 
+                    repellendus assumenda libero dicta iste sequi corrupti laboriosam eius possimus eum......</p>
+            </div>
+            <div class="col" style="background-color: gray;">
+                <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
+            </div>
         </div>
     </div>
 {% endblock content %}
