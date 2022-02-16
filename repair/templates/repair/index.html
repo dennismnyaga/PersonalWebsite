@@ -9,11 +9,13 @@
         <div class="container" style="margin-bottom: 30px;">
             <a href="{% url 'repair:detail' hardware.id %}"><img src="{{ hardware.image.url }}" class="img-fluid" alt="..."></a>
             <div class="def">
-                <a style="text-decoration: none; color: black;" href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
+                <a onMouseOver="this.style.color='red'"
+                onMouseOut="this.style.color='black'" style="text-decoration: none; color: black;" href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
                 <p>{{hardware.description|truncatechars:100}}</p>
             </div>
             <div class="col" style="background-color: gray;">
-                <a  href="{% url 'repair:detail' hardware.id %}"><h4 style="text-align: center;">[Read more..]</h4></a>
+                <a onMouseOver="this.style.color='red'"
+                onMouseOut="this.style.color='black'"  href="{% url 'repair:detail' hardware.id %}"><h4 style="text-align: center;">[Read more..]</h4></a>
             </div>
         </div>
         {% endfor %}
@@ -26,13 +28,17 @@
         </div>
         {% for software in soft|slice:":3" %}
         <div class="container">
-            <img src="{{ software.image.url }}" class="img-fluid" alt="...">
+            <a href="{% url 'repair:softdetail' software.id %}"><img src="{{ software.image.url }}" class="img-fluid" alt="..."></a>
+            
             <div class="def">
-                <h2>{{software.title}}</h2>
+                <a onMouseOver="this.style.color='red'"
+                onMouseOut="this.style.color='black'" style="color: black; text-decoration: none;" href="{% url 'repair:softdetail' software.id %}"><h2>{{software.title}}</h2></a>
+                
                 <p>{{software.description|truncatechars:100}}</p> 
             </div>
             <div class="col" style="background-color: gray;">
-                <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
+                <a onMouseOver="this.style.color='red'"
+                onMouseOut="this.style.color='black'" href="{% url 'repair:softdetail' software.id %}"><h4 style="text-align: center;">[Read more..]</h4></a>
             </div>
         </div>
         {% endfor %}

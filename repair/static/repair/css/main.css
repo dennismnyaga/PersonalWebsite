@@ -72,3 +72,9 @@ li{
     text-decoration: none;
     color: black;
 }
+a:hover {
+    color: red;
+}
+.container .col .card .card-body .hove :hover{
+    color: red;
+}

@@ -7,4 +7,5 @@ urlpatterns = [
     path('hardware/', views.hardware, name='hardware'),
     path('software/', views.software, name='software'),
     path('detail/<str:pk>/', views.detail, name='detail'),
+    path('softdetail/<str:pk>/', views.softdetail, name='softdetail'),
 ]

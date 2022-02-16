@@ -46,16 +46,9 @@
     </div>
     <hr style="height: 2px; background-color: #000000; color: #000000;">
 </div>
-  <main role="main" class="container bg-light">
-    <div class="row">
-      <div class="col-md-8">
-        {% block content %}{% endblock %}
-      </div>
-      {% include 'repair/sidebar.html' %}
-      
-    </div>
-  </main>
-  
+{% block content %}{% endblock content %}
+
+
   <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <div class="col-md-4 d-flex align-items-center">

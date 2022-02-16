@@ -20,6 +20,10 @@ def software(request):
 
 def detail(request, pk):
     hard = Hardware.objects.get(id=pk)
-    soft = Software.objects.get(id=pk)
-    context = {'hard':hard, 'soft':soft}
+    context = {'hard':hard}
     return  render(request, 'repair/detail.html', context)
+
+def softdetail(request, pk):
+    soft = Software.objects.get(id=pk)
+    context = {'soft':soft}
+    return  render(request, 'repair/softdetail.html', context)
