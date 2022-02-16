@@ -1,19 +1,19 @@
 {% extends 'repair/main.html' %}
 {% load static %}
 {% block content %}
-    <div class="container">
+    <div class="container" style="margin-bottom: 35px;">
         <div class="col">
-            <h3>Hardware</h3>
+            <a style="color: black;" href="{% url 'repair:hardware' %}"><h3>Hardware</h3></a>
         </div>
-        {% for hardware in hard %}
-        <div class="container">
+        {% for hardware in hard|slice:":3" %}
+        <div class="container" style="margin-bottom: 30px;">
             <a href="{% url 'repair:detail' hardware.id %}"><img src="{{ hardware.image.url }}" class="img-fluid" alt="..."></a>
             <div class="def">
-                <a href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
-                <p>{{hardware.description}}</p>
+                <a style="text-decoration: none; color: black;" href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
+                <p>{{hardware.description|truncatechars:100}}</p>
             </div>
             <div class="col" style="background-color: gray;">
-                <a  href="{{hardware.title}}"><h4 style="text-align: center;">[Read more..]</h4></a>
+                <a  href="{% url 'repair:detail' hardware.id %}"><h4 style="text-align: center;">[Read more..]</h4></a>
             </div>
         </div>
         {% endfor %}
@@ -21,28 +21,25 @@
 
     <div class="container">
         <div class="col">
-            <h3>Software</h3>
+            <a style="color: black;" href="{% url 'repair:software' %}"><h3>Software</h3></a>
+            
         </div>
+        {% for software in soft|slice:":3" %}
         <div class="container">
-            <img src="{% static 'repair/images/Computer_Repair.jpg' %}" class="img-fluid" alt="...">
+            <img src="{{ software.image.url }}" class="img-fluid" alt="...">
             <div class="def">
-                <h2>
-                    Main Content
-                    HARDWARE
-                    Intel Management Engine Components Slowing Down PC
-                    Intel Management Engine Components Slowing Down PC</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quo vero placeat dolor 
-                    adipisci porro, laborum est voluptates? Officiis 
-                    repellendus assumenda libero dicta iste sequi corrupti laboriosam eius possimus eum......</p>
+                <h2>{{software.title}}</h2>
+                <p>{{software.description|truncatechars:100}}</p> 
             </div>
             <div class="col" style="background-color: gray;">
                 <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="col">
             <h3>Market</h3>
         </div>
@@ -62,5 +59,5 @@
                 <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
             </div>
         </div>
-    </div>
+    </div> -->
 {% endblock content %}
