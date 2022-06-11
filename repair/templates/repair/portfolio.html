@@ -1,0 +1,146 @@
+{% load static %}
+{% load embed_video_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet"  href="{% static 'repair/css/main.css' %}">
+    <link type="text/css" rel="stylesheet"  href="{% static 'repair/css/portfolio.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <title>O-ESS</title>
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'repair:hardware' %}">Python</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'repair:software' %}">Django</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'repair:portfolio' %}">Portfolio</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="logo">
+        <div class="logo-cont">
+            <img src="{% static 'repair/images/prof.jpg' %}" alt="">
+            <small>Dennis Nyaga</small>
+        </div>
+        
+        <div class="line"></div>
+        <div class="text">
+            <h3>My Portfolio</h3>
+        </div>
+    </div>
+    <hr style="height: 2px; background-color: #000000; color: #000000;">
+</div>
+{% block content %}
+<div class="container">
+    <div class="col latest">
+        <h3>Latest Work</h3>
+        <div class="social-media">
+            <div class="social">
+              <a href="tel:+254 700200566">
+                <img src="https://img.icons8.com/color/48/000000/apple-phone.png"/>
+              </a>
+            </div>
+            <div class="social">
+              <a href="https://api.whatsapp.com/send?phone=+254 700200566&amp;text=Hi there! How can I help you? :)">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp--v6.png"/>
+              </a>
+            </div>
+            <div class="social">
+              <a href="https://www.facebook.com/dennis.muril/">
+                <img src="https://img.icons8.com/color/48/000000/facebook-new.png"/>
+              </a>
+            </div>
+            <div class="social">
+              <a href="https://www.instagram.com/codewithdenno/">
+                <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png"/>
+              </a>
+            </div>
+            <div class="social">
+              <a href="https://twitter.com/murildennis7">
+                <img src="https://img.icons8.com/color/48/000000/twitter--v2.png"/>
+              </a>
+            </div>
+            <div class="social">
+              <a href="mailto: murildennis7@gmail.com">
+                <img src="https://img.icons8.com/fluency/48/000000/email-open.png"/>
+              </a>
+            </div>
+          </div>
+    </div>
+    <main>
+
+
+
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for software in soft %}
+              <div class="col" style="background-color: white;">
+                <div class="card shadow-sm">
+                    <a href="{% url 'repair:portfoliodetail' software.id %}"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ software.image.url }}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em" alt=""></text></a> 
+                  <div class="card-body">
+                      <a onMouseOver="this.style.color='red'"
+                      onMouseOut="this.style.color='black'" href="{% url 'repair:portfoliodetail' software.id %}"><h5 class="card-title">{{software.title}}</h5></a>
+                        <p class="card-text">{{software.description|truncatechars:200}} <a style="text-decoration: none; color: red; font-weight: bold;" href="{% url 'repair:detail' software.id %}">[Read More...]</a></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+              
+
+
+            </div>
+          </div>
+        </div>
+      
+      </main>
+</div>
+{% endblock content %}
+  
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="text-muted">&copy; 2022 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

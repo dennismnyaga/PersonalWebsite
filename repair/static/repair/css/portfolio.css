@@ -1,0 +1,23 @@
+.container-fluid .logo .logo-cont img{
+    border-radius: 50%;
+    margin-right: 5px;
+    object-fit: fill;
+}
+
+.container-fluid .logo .logo-cont{
+    display: flex;
+    flex-direction: column;
+}
+.container-fluid .logo .logo-cont small{
+    text-shadow: 0.2rem;
+    font-size: large;
+    font-weight: bold;
+}
+.latest{
+    display: flex;
+    justify-content: space-between;
+}
+.latest .social-media .social{
+    margin: 0 2px 0 2px;
+    background-color: transparent;
+}

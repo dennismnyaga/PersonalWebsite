@@ -1,13 +1,25 @@
 {% extends 'repair/main.html' %}
 {% load static %}
+{% load embed_video_tags %}
 {% block content %}
+
+
     <div class="container" style="margin-bottom: 35px;">
         <div class="col">
-            <a style="color: black;" href="{% url 'repair:hardware' %}"><h3>Hardware</h3></a>
+            <a style="color: black;" href="{% url 'repair:hardware' %}"><h3>Python</h3></a>
         </div>
+       
         {% for hardware in hard|slice:":3" %}
         <div class="container" style="margin-bottom: 30px;">
-            <a href="{% url 'repair:detail' hardware.id %}"><img src="{{ hardware.image.url }}" class="img-fluid" alt="..."></a>
+            <div class="you" style="width: 100%; height: 30rem; border-radius: 5px;">
+                {% video hardware.video as my_video %}
+                    {% video my_video '100% x 100%' %}
+                {% endvideo %}
+         
+            </div>
+            <!-- <iframe width="100%" height="315" src="{{sermons.video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <!-- <iframe src="{{ hardware.video }}" frameborder="0"></iframe> -->
+            <!-- <a href="{% url 'repair:detail' hardware.id %}"><img src="{{ hardware.image.url }}" class="img-fluid" alt="..."></a> -->
             <div class="def">
                 <a onMouseOver="this.style.color='red'"
                 onMouseOut="this.style.color='black'" style="text-decoration: none; color: black;" href="{% url 'repair:detail' hardware.id %}"><h2>{{hardware.title}}</h2></a>
@@ -23,12 +35,18 @@
 
     <div class="container">
         <div class="col">
-            <a style="color: black;" href="{% url 'repair:software' %}"><h3>Software</h3></a>
+            <a style="color: black;" href="{% url 'repair:software' %}"><h3>Django</h3></a>
             
         </div>
         {% for software in soft|slice:":3" %}
         <div class="container">
-            <a href="{% url 'repair:softdetail' software.id %}"><img src="{{ software.image.url }}" class="img-fluid" alt="..."></a>
+            <div class="you" style="width: 100%; height: 30rem; border-radius: 5px;">
+                {% video software.video as my_video %}
+                    {% video my_video '100% x 100%' %}
+                {% endvideo %}
+         
+            </div>
+            <!-- <a href="{% url 'repair:softdetail' software.id %}"><img src="{{ software.image.url }}" class="img-fluid" alt="..."></a> -->
             
             <div class="def">
                 <a onMouseOver="this.style.color='red'"
