@@ -3,18 +3,17 @@
 {% load embed_video_tags %}
 {% block content %}
 
-    <div class="container">
+    <div>
         <div class="col">
-            <h3>Hardware</h3>
+            <h3>Python</h3>
         </div>
-        <div class="container">
+        <div >
             <div class="you" style="width: 100%; height: 30rem; border-radius: 5px;">
                 {% video hard.video as my_video %}
-                    {% video my_video '100% x 100%' %}
+                    {% video my_video '100% x 80%' %}
                 {% endvideo %}
          
             </div>
-            <!-- <img src="{{ hard.image.url }}" class="img-fluid" alt="..."> -->
             <div class="def">
                 <h2>{{hard.title}}</h2>
                 <p>{{hard.description}}</p>

@@ -4,16 +4,16 @@
 {% block content %}
 
 
-    <div class="container" style="margin-bottom: 35px;">
+    <div style="margin-bottom: 35px;">
         <div class="col">
             <a style="color: black;" href="{% url 'repair:hardware' %}"><h3>Python</h3></a>
         </div>
        
         {% for hardware in hard|slice:":3" %}
-        <div class="container" style="margin-bottom: 30px;">
+        <div style="margin-bottom: 30px;">
             <div class="you" style="width: 100%; height: 30rem; border-radius: 5px;">
                 {% video hardware.video as my_video %}
-                    {% video my_video '100% x 100%' %}
+                    {% video my_video '100% x 80%' %}
                 {% endvideo %}
          
             </div>
@@ -33,20 +33,20 @@
         {% endfor %}
     </div>
 
-    <div class="container">
+    <div>
         <div class="col">
             <a style="color: black;" href="{% url 'repair:software' %}"><h3>Django</h3></a>
             
         </div>
         {% for software in soft|slice:":3" %}
-        <div class="container">
+        <div >
             <div class="you" style="width: 100%; height: 30rem; border-radius: 5px;">
                 {% video software.video as my_video %}
-                    {% video my_video '100% x 100%' %}
+                    {% video my_video '100% x 80%' %}
                 {% endvideo %}
          
             </div>
-            <!-- <a href="{% url 'repair:softdetail' software.id %}"><img src="{{ software.image.url }}" class="img-fluid" alt="..."></a> -->
+            
             
             <div class="def">
                 <a onMouseOver="this.style.color='red'"
@@ -62,26 +62,4 @@
         {% endfor %}
     </div>
 
-
-    <!-- <div class="container">
-        <div class="col">
-            <h3>Market</h3>
-        </div>
-        <div class="container">
-            <img src="{% static 'repair/images/Computer_Repair.jpg' %}" class="img-fluid" alt="...">
-            <div class="def">
-                <h2>
-                    Main Content
-                    HARDWARE
-                    Intel Management Engine Components Slowing Down PC
-                    Intel Management Engine Components Slowing Down PC</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quo vero placeat dolor 
-                    adipisci porro, laborum est voluptates? Officiis 
-                    repellendus assumenda libero dicta iste sequi corrupti laboriosam eius possimus eum......</p>
-            </div>
-            <div class="col" style="background-color: gray;">
-                <a  href="#"><h4 style="text-align: center;">[Read more..]</h4></a>
-            </div>
-        </div>
-    </div> -->
 {% endblock content %}
